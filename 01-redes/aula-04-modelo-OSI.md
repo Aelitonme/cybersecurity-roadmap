@@ -1,5 +1,3 @@
-Perfeito. Como isso vai para o seu GitHub, vou fazer em um formato de **documentação técnica**, mais completo e organizado do que um simples resumo.
-
 # 🌐 Modelo OSI (Open Systems Interconnection)
 
 > **Categoria:** Redes de Computadores
@@ -383,11 +381,10 @@ Embora a Internet utilize o Modelo TCP/IP, o Modelo OSI continua sendo a princip
 * RFC 9293 (TCP).
 * RFC 768 (UDP).
 
-**Uma sugestão para deixar seu GitHub ainda mais profissional:** no final de cada resumo, adicione uma seção chamada **"🛠️ Ferramentas relacionadas"** quando fizer sentido. Por exemplo, neste documento você poderia listar:
 
 * **Wireshark** — analisar pacotes de rede.
 * **Cisco Packet Tracer** — simular redes.
 * **GNS3** — emulação de equipamentos de rede.
 * **ping**, **tracert/traceroute**, **ipconfig/ifconfig**, **arp** — comandos úteis para estudar as camadas.
 
-Assim, seus resumos passam a conectar teoria com ferramentas usadas no dia a dia de profissionais de redes e cybersecurity.
+
