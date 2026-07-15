@@ -1,0 +1,302 @@
+# 🌐 DNS (Domain Name System)
+
+> **Categoria:** Redes de Computadores
+> **Nível:** Básico
+> **Status:** 📖 Revisão
+
+---
+
+# 📌 O que é?
+
+O **DNS (Domain Name System)** é um sistema responsável por traduzir **nomes de domínio** em **endereços IP**.
+
+Como é muito mais fácil lembrar um nome como **google.com** do que um endereço IP como **142.250.217.78**, o DNS faz essa conversão automaticamente.
+
+Por isso, o DNS é conhecido como a **"lista telefônica da Internet"**.
+
+---
+
+# 🎯 Objetivos
+
+* Traduzir nomes de domínio em endereços IP.
+* Facilitar a navegação na Internet.
+* Permitir que dispositivos encontrem servidores rapidamente.
+* Evitar que usuários precisem memorizar endereços IP.
+
+---
+
+# 🧠 Conceitos importantes
+
+* Todo site possui um endereço IP.
+* As pessoas acessam os sites usando nomes de domínio.
+* O DNS faz a tradução entre o nome e o IP.
+* Sem o DNS, seria necessário acessar os sites digitando seus endereços IP.
+
+---
+
+# 📚 Como funciona?
+
+Quando você digita um endereço como:
+
+```text
+www.google.com
+```
+
+O navegador ainda **não sabe** qual é o endereço IP desse site.
+
+Ele então faz uma consulta ao servidor DNS.
+
+O servidor responde informando o endereço IP correspondente.
+
+Depois disso, o navegador consegue estabelecer a conexão com o servidor do site.
+
+---
+
+# ⚙️ Funcionamento passo a passo
+
+### 1. O usuário digita o domínio
+
+Exemplo:
+
+```text
+www.openai.com
+```
+
+↓
+
+### 2. O navegador verifica o cache DNS
+
+Se o endereço já foi consultado recentemente, ele utiliza a informação armazenada.
+
+Caso contrário, continua a busca.
+
+↓
+
+### 3. O computador consulta um servidor DNS
+
+Normalmente é um servidor do provedor de Internet ou um DNS público.
+
+Exemplos:
+
+* Google DNS
+* Cloudflare DNS
+* OpenDNS
+
+↓
+
+### 4. O servidor DNS responde com o endereço IP
+
+Exemplo:
+
+```text
+www.openai.com
+
+↓
+
+104.xxx.xxx.xxx
+```
+
+↓
+
+### 5. O navegador utiliza esse endereço IP
+
+Agora ele consegue se comunicar com o servidor correto.
+
+↓
+
+### 6. O site é carregado
+
+A página aparece para o usuário.
+
+---
+
+# 🌍 Hierarquia do DNS
+
+O DNS funciona como uma árvore.
+
+```text
+                .
+                │
+          Root DNS
+                │
+       ┌────────┴────────┐
+      .com             .org
+       │                 │
+   google.com       wikipedia.org
+       │
+   www.google.com
+```
+
+Cada nível possui uma responsabilidade específica para localizar o domínio solicitado.
+
+---
+
+# 💡 Exemplo prático
+
+Imagine que você deseja visitar:
+
+```text
+www.youtube.com
+```
+
+O computador pergunta:
+
+> "Qual é o endereço IP do youtube.com?"
+
+O servidor DNS responde:
+
+> "O endereço IP é X.X.X.X."
+
+Depois disso, o navegador consegue enviar a requisição HTTP para o servidor correto.
+
+---
+
+# 📂 Principais tipos de registros DNS
+
+## A
+
+Relaciona um domínio a um endereço **IPv4**.
+
+Exemplo:
+
+```text
+google.com → 142.250.xxx.xxx
+```
+
+---
+
+## AAAA
+
+Relaciona um domínio a um endereço **IPv6**.
+
+---
+
+## CNAME
+
+Cria um apelido para outro domínio.
+
+Exemplo:
+
+```text
+blog.exemplo.com
+
+↓
+
+site.exemplo.com
+```
+
+---
+
+## MX
+
+Define qual servidor recebe os e-mails do domínio.
+
+---
+
+## NS
+
+Informa quais servidores DNS são responsáveis pelo domínio.
+
+---
+
+## TXT
+
+Armazena informações de texto.
+
+Muito utilizado para:
+
+* SPF
+* DKIM
+* Verificação de domínio
+
+---
+
+# 🔒 Segurança no DNS
+
+Alguns ataques exploram o DNS, como:
+
+* DNS Spoofing
+* DNS Cache Poisoning
+* Amplificação por DNS
+* Tunelamento DNS
+
+Para aumentar a segurança, existem tecnologias como:
+
+* DNSSEC (protege a autenticidade das respostas DNS)
+* DNS over HTTPS (DoH)
+* DNS over TLS (DoT)
+
+---
+
+# 📝 Resumo
+
+O DNS é responsável por traduzir nomes de domínio em endereços IP.
+
+Sempre que um usuário acessa um site, normalmente ocorre uma consulta DNS antes da comunicação HTTP ou HTTPS.
+
+Sem o DNS, seria necessário memorizar os endereços IP de todos os servidores acessados.
+
+---
+
+# 🎓 O que preciso lembrar?
+
+* ✅ DNS significa **Domain Name System**.
+* ✅ Traduz nomes de domínio em endereços IP.
+* ✅ Funciona como a "lista telefônica" da Internet.
+* ✅ Toda navegação na Web normalmente começa com uma consulta DNS.
+* ✅ O registro **A** aponta para um IPv4.
+* ✅ O registro **AAAA** aponta para um IPv6.
+* ✅ O registro **MX** é utilizado para e-mails.
+* ✅ O registro **CNAME** cria um alias para outro domínio.
+
+---
+
+# ❓ Perguntas para revisar
+
+1. O que é DNS?
+2. Qual é a principal função do DNS?
+3. O que acontece quando digitamos um domínio no navegador?
+4. O que é um registro A?
+5. Qual a diferença entre os registros A e AAAA?
+6. Para que serve um registro MX?
+7. O que é um CNAME?
+8. O que é DNSSEC?
+9. O que é DNS over HTTPS (DoH)?
+10. Por que o DNS é importante para a Internet?
+
+---
+
+# 🔑 Palavras-chave
+
+* DNS
+* Domain Name System
+* Endereço IP
+* Domínio
+* IPv4
+* IPv6
+* Registro A
+* Registro AAAA
+* MX
+* CNAME
+* DNSSEC
+* DoH
+* DoT
+
+---
+
+# 🛠️ Ferramentas relacionadas
+
+* **nslookup** — consulta registros DNS.
+* **dig** — ferramenta avançada para consultas DNS (Linux/macOS).
+* **whois** — informações sobre domínios.
+* **Wireshark** — captura e analisa consultas DNS.
+* **Google Admin Toolbox Dig** — consulta registros DNS pela web.
+
+---
+
+# 📖 Referências
+
+* RFC 1034 – Domain Names: Concepts and Facilities.
+* RFC 1035 – Domain Names: Implementation and Specification.
+* Documentação da ICANN sobre DNS.
+* Documentação do Cloudflare Learning Center.
