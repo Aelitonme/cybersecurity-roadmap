@@ -1,0 +1,273 @@
+# 🔐 TLS (Transport Layer Security)
+
+> **Categoria:** Redes de Computadores
+> **Nível:** Básico
+> **Status:** 📖 Revisão
+
+---
+
+# 📌 O que é?
+
+O **TLS (Transport Layer Security)** é um protocolo de segurança responsável por proteger a comunicação entre um cliente e um servidor.
+
+Seu principal objetivo é **criptografar os dados transmitidos**, garantindo que terceiros não consigam ler ou alterar as informações durante a comunicação.
+
+O TLS é o protocolo utilizado pelo **HTTPS** para tornar a navegação na Internet segura.
+
+> **Observação:** Antigamente era utilizado o protocolo **SSL (Secure Sockets Layer)**. Hoje ele foi substituído pelo **TLS**, embora muitas pessoas ainda utilizem o termo "SSL" para se referir a certificados e conexões seguras.
+
+---
+
+# 🎯 Objetivos
+
+* Criptografar a comunicação entre cliente e servidor.
+* Garantir que os dados não sejam alterados durante a transmissão.
+* Confirmar a identidade do servidor.
+* Proteger informações sensíveis contra interceptação.
+
+---
+
+# 🧠 Conceitos importantes
+
+* TLS significa **Transport Layer Security**.
+* É utilizado principalmente junto com o HTTPS.
+* Utiliza criptografia para proteger os dados.
+* Emprega certificados digitais para autenticar o servidor.
+* Substituiu o antigo protocolo SSL.
+
+---
+
+# 📚 Como funciona?
+
+Antes de qualquer dado ser enviado, cliente e servidor realizam um processo chamado **Handshake TLS**.
+
+Durante esse processo:
+
+1. O cliente solicita uma conexão segura.
+2. O servidor envia seu certificado digital.
+3. O cliente verifica se o certificado é confiável.
+4. Cliente e servidor negociam uma chave de sessão.
+5. A comunicação criptografada é iniciada.
+
+Depois disso, todas as informações passam a trafegar protegidas.
+
+---
+
+# ⚙️ Funcionamento passo a passo
+
+### 1. O cliente solicita uma conexão segura
+
+Exemplo:
+
+```text
+https://www.exemplo.com
+```
+
+↓
+
+### 2. O servidor envia o certificado digital
+
+O certificado contém informações sobre a identidade do servidor e sua chave pública.
+
+↓
+
+### 3. O navegador valida o certificado
+
+Ele verifica:
+
+* Se o certificado pertence ao domínio.
+* Se foi emitido por uma Autoridade Certificadora (CA) confiável.
+* Se ainda está dentro da validade.
+
+↓
+
+### 4. Negociação das chaves
+
+Cliente e servidor estabelecem uma chave de sessão que será utilizada para criptografar a comunicação.
+
+↓
+
+### 5. Comunicação segura
+
+Todos os dados passam a ser enviados de forma criptografada.
+
+---
+
+# 🔑 Criptografia no TLS
+
+O TLS utiliza diferentes técnicas criptográficas.
+
+## Criptografia Assimétrica
+
+Utilizada no início da conexão para autenticação e troca segura de informações.
+
+Características:
+
+* Usa um par de chaves:
+
+  * Chave pública.
+  * Chave privada.
+
+---
+
+## Criptografia Simétrica
+
+Após o handshake, a maior parte da comunicação utiliza criptografia simétrica.
+
+Características:
+
+* Mais rápida.
+* Utiliza uma única chave compartilhada entre cliente e servidor.
+
+---
+
+# 📜 Certificado Digital
+
+O certificado digital funciona como a identidade do servidor.
+
+Ele contém informações como:
+
+* Nome do domínio.
+* Chave pública.
+* Autoridade Certificadora (CA).
+* Período de validade.
+
+Se o certificado for inválido, expirado ou não corresponder ao domínio acessado, o navegador exibirá um aviso de segurança.
+
+---
+
+# 🛡️ O que o TLS protege?
+
+O TLS protege informações como:
+
+* Senhas.
+* Dados bancários.
+* Informações pessoais.
+* Cookies de sessão.
+* Mensagens.
+* Dados enviados por formulários.
+
+---
+
+# 💡 Exemplo prático
+
+Imagine que você faz login em um banco.
+
+Sem TLS:
+
+* O usuário envia a senha.
+* Um invasor pode interceptar os dados durante a transmissão.
+
+Com TLS:
+
+* A senha é criptografada antes de sair do computador.
+* Mesmo que alguém intercepte os dados, eles estarão ilegíveis sem a chave correta.
+
+---
+
+# 🔒 Propriedades de segurança
+
+## Confidencialidade
+
+Somente cliente e servidor conseguem ler os dados transmitidos.
+
+---
+
+## Integridade
+
+O TLS ajuda a detectar alterações feitas nos dados durante o trajeto.
+
+---
+
+## Autenticação
+
+O cliente verifica, por meio do certificado digital, se está se comunicando com o servidor esperado.
+
+---
+
+# ⚠️ Sem TLS
+
+Uma comunicação sem TLS pode estar sujeita a ataques como:
+
+* Interceptação de dados.
+* Roubo de senhas.
+* Captura de cookies.
+* Alteração de informações durante o tráfego.
+* Ataques do tipo **Man-in-the-Middle (MitM)**.
+
+---
+
+# 🔄 TLS × SSL
+
+| SSL                                 | TLS                           |
+| ----------------------------------- | ----------------------------- |
+| Protocolo mais antigo.              | Substituiu o SSL.             |
+| Possui vulnerabilidades conhecidas. | Mais seguro e atualizado.     |
+| Não é mais recomendado.             | É o padrão atual da Internet. |
+
+---
+
+# 📝 Resumo
+
+O TLS é o protocolo responsável por proteger a comunicação entre cliente e servidor.
+
+Ele utiliza criptografia e certificados digitais para garantir uma conexão segura, sendo a base do funcionamento do HTTPS.
+
+Sempre que um site utiliza HTTPS, o TLS protege os dados transmitidos entre o navegador e o servidor.
+
+---
+
+# 🎓 O que preciso lembrar?
+
+* ✅ TLS significa **Transport Layer Security**.
+* ✅ É utilizado pelo HTTPS.
+* ✅ Substituiu o protocolo SSL.
+* ✅ Utiliza certificados digitais.
+* ✅ Protege a confidencialidade, a integridade e ajuda na autenticação da comunicação.
+* ✅ O handshake TLS acontece antes da troca de dados.
+
+---
+
+# ❓ Perguntas para revisar
+
+1. O que é o TLS?
+2. Qual é a função do handshake TLS?
+3. Qual a diferença entre TLS e SSL?
+4. Para que serve um certificado digital?
+5. Qual a diferença entre criptografia simétrica e assimétrica?
+6. O que o TLS protege?
+7. Por que o TLS é importante para o HTTPS?
+8. O que pode acontecer se uma conexão não utilizar TLS?
+
+---
+
+# 🔑 Palavras-chave
+
+* TLS
+* SSL
+* HTTPS
+* Criptografia
+* Handshake
+* Certificado Digital
+* Chave Pública
+* Chave Privada
+* Criptografia Simétrica
+* Criptografia Assimétrica
+* Man-in-the-Middle
+
+---
+
+# 🛠️ Ferramentas relacionadas
+
+* **OpenSSL** — testar conexões TLS e inspecionar certificados.
+* **Wireshark** — analisar o handshake TLS.
+* **SSL Labs Server Test** — verificar a configuração TLS de servidores.
+* **Google Chrome DevTools** — visualizar detalhes da conexão HTTPS/TLS.
+
+---
+
+# 📖 Referências
+
+* RFC 8446 – The Transport Layer Security (TLS) Protocol Version 1.3.
+* Documentação da Mozilla (MDN) sobre TLS.
+* OWASP Transport Layer Protection Cheat Sheet.
