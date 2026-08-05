@@ -1,0 +1,236 @@
+🛰️ Traceroute (Tracerouter / Tracert)
+
+«Categoria: Redes de Computadores
+Nível: Básico
+Status: 📖 Revisão»
+
+---
+
+📌 O que é?
+
+O Traceroute (ou tracert no Windows) é uma ferramenta de diagnóstico utilizada para descobrir o caminho que um pacote percorre até chegar ao seu destino.
+
+Ela identifica cada dispositivo intermediário (roteadores, também chamados de hops ou "saltos") entre o computador de origem e o servidor de destino.
+
+Além disso, mostra o tempo de resposta de cada salto, ajudando na identificação de falhas ou lentidão na rede.
+
+---
+
+🎯 Objetivos
+
+- Descobrir o caminho percorrido pelos pacotes.
+- Identificar onde uma conexão está falhando.
+- Medir o tempo de resposta de cada salto.
+- Auxiliar no diagnóstico de problemas de rede.
+
+---
+
+🧠 Conceitos importantes
+
+- Cada linha representa um dispositivo (hop) entre a origem e o destino.
+- O traceroute utiliza o campo TTL (Time To Live) do protocolo IP.
+- Quando o TTL chega a 0, o roteador descarta o pacote e envia uma mensagem ICMP Time Exceeded.
+- O processo continua aumentando o TTL até alcançar o destino.
+
+---
+
+📚 Como funciona?
+
+O traceroute envia vários pacotes com valores de TTL diferentes.
+
+Exemplo:
+
+- Primeiro pacote → TTL = 1
+- Segundo pacote → TTL = 2
+- Terceiro pacote → TTL = 3
+
+Cada roteador reduz o TTL em 1.
+
+Quando o TTL chega a zero, o roteador devolve uma mensagem ICMP Time Exceeded, permitindo que o traceroute descubra sua existência.
+
+Esse processo continua até que o pacote alcance o servidor de destino.
+
+---
+
+⚙️ Funcionamento passo a passo
+
+1. O computador envia um pacote com TTL = 1
+
+↓
+
+2. O primeiro roteador reduz o TTL
+
+TTL = 0
+
+↓
+
+3. O roteador responde com ICMP Time Exceeded
+
+O traceroute registra o primeiro salto.
+
+↓
+
+4. O computador envia outro pacote com TTL = 2
+
+↓
+
+5. O segundo roteador responde
+
+O traceroute registra o segundo salto.
+
+↓
+
+6. O processo continua
+
+Até que o pacote chegue ao servidor de destino.
+
+---
+
+💡 Exemplo prático
+
+No Windows:
+
+tracert google.com
+
+No Linux/macOS:
+
+traceroute google.com
+
+Saída simplificada:
+
+1   1 ms     2 ms     1 ms    192.168.1.1
+2   10 ms    11 ms    10 ms   100.64.0.1
+3   18 ms    19 ms    17 ms   200.160.xxx.xxx
+4   28 ms    30 ms    29 ms   google.com
+
+Nesse exemplo:
+
+- O 1º salto é o roteador da rede local.
+- O 2º salto é um equipamento do provedor de Internet.
+- O 3º salto é outro roteador da operadora.
+- O 4º salto é o servidor de destino.
+
+---
+
+📊 Como interpretar o resultado
+
+Cada linha representa um hop.
+
+Cada hop exibe:
+
+- Número do salto.
+- Tempo de resposta (latência).
+- Endereço IP ou nome do dispositivo.
+
+Exemplo:
+
+3   18 ms   19 ms   17 ms
+
+Significa que o terceiro roteador respondeu em aproximadamente 18 a 19 milissegundos.
+
+---
+
+⚠️ Quando aparecem asteriscos (*)
+
+Exemplo:
+
+5    *    *    *
+
+Isso pode indicar:
+
+- Firewall bloqueando mensagens ICMP.
+- Equipamento configurado para não responder.
+- Congestionamento na rede.
+- Perda de pacotes.
+
+Um hop com "*" não significa necessariamente que há um problema. Muitos roteadores são configurados para não responder ao traceroute, enquanto continuam encaminhando os pacotes normalmente.
+
+---
+
+🛠️ Aplicações
+
+O traceroute é utilizado para:
+
+- Diagnosticar problemas de conectividade.
+- Descobrir onde ocorre uma interrupção na comunicação.
+- Identificar alta latência.
+- Analisar o caminho dos pacotes.
+- Auxiliar equipes de redes e cybersecurity em investigações.
+
+---
+
+🔄 Ping × Traceroute
+
+Ping| Traceroute
+Verifica se o destino responde.| Mostra o caminho até o destino.
+Mede o tempo total da comunicação.| Mede o tempo de cada salto.
+Utiliza mensagens ICMP Echo Request e Echo Reply.| Utiliza o TTL e mensagens ICMP Time Exceeded.
+
+---
+
+📝 Resumo
+
+O traceroute é uma ferramenta utilizada para descobrir o caminho percorrido pelos pacotes até o destino.
+
+Ele funciona aumentando gradualmente o valor do TTL e registrando cada roteador que responde com uma mensagem ICMP Time Exceeded.
+
+É uma das principais ferramentas para diagnóstico de problemas em redes.
+
+---
+
+🎓 O que preciso lembrar?
+
+- ✅ Cada linha representa um hop (salto).
+- ✅ O traceroute utiliza o campo TTL.
+- ✅ O TTL é reduzido em 1 a cada roteador.
+- ✅ Quando o TTL chega a 0, o roteador envia ICMP Time Exceeded.
+- ✅ O comando é "tracert" no Windows.
+- ✅ O comando é "traceroute" no Linux e macOS.
+- ✅ A ferramenta mostra o caminho percorrido pelos pacotes.
+
+---
+
+❓ Perguntas para revisar
+
+1. O que é o traceroute?
+2. Qual é a principal função dessa ferramenta?
+3. O que é um hop?
+4. O que significa TTL?
+5. O que acontece quando o TTL chega a zero?
+6. Qual mensagem ICMP é utilizada pelo traceroute?
+7. Qual a diferença entre ping e traceroute?
+8. O que podem indicar os asteriscos (*) no resultado?
+
+---
+
+🔑 Palavras-chave
+
+- Traceroute
+- Tracert
+- TTL
+- Hop
+- ICMP
+- Time Exceeded
+- Roteador
+- Diagnóstico de Rede
+- Latência
+- Caminho dos Pacotes
+
+---
+
+🛠️ Ferramentas relacionadas
+
+- ping — verifica a conectividade entre dispositivos.
+- Wireshark — captura pacotes ICMP e analisa o tráfego do traceroute.
+- tcpdump — captura pacotes pela linha de comando.
+- MTR (My Traceroute) — combina funcionalidades do ping e do traceroute em tempo real.
+- pathping (Windows) — analisa rota e perda de pacotes.
+
+---
+
+📖 Referências
+
+- RFC 791 – Internet Protocol (IPv4).
+- RFC 792 – Internet Control Message Protocol (ICMP).
+- Documentação oficial do Microsoft "tracert".
+- Manual do "traceroute" (Linux).
